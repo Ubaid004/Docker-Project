@@ -20,10 +20,10 @@ pipeline {
         }
         stage("push"){
             steps{
-                scripts{
+                script{
                     withCredentials([usernameColonPassword(credentialsId: 'Dockerhubid', variable: 'dockerhub')]) {
                         sh "docker login -u ubaid004 -p $dockerhub"
-                        sh "docker push docker push $repo"
+                        sh "docker push $repo"
                     }
                     
                 } 

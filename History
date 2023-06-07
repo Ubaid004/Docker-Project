@@ -1,0 +1,88 @@
+DOCKER PROJECT:
+
+
+yum install docker -y
+systemctl start docker
+systemctl status docker
+
+DOCKER FILE	: To create image by automation.
+DOCKER COMPOSE	: To create multiple containers on single server.
+DOCKER SWARM	: To create multiple containers on Multiple server.
+DOCKE STACK	: Docker swarm + Docker compose
+
+1. CREATE 3 SERVERS AND INSTALL DOCKER ON ALL OF THEM & CREATE CLUSTER OF IT
+
+yum install docker -y
+systemctl start docker
+systemctl status docker
+docker swarm init --advertise-addr 172.31.85.110
+docker node ls
+
+2. INSTALLING JENKINS (MASTER)
+
+sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
+sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
+amazon-linux-extras install java-openjdk11 -y 
+yum install git maven jenkins -y
+systemctl start jenkins.service
+systemctl status jenkins.service
+
+3. GIVE PERMISSIONS
+
+chmod 777 /var/run/docker.sock
+systemctl daemon-reload
+systemctl restart docker.service
+
+*DOCKER-COMPOSE INSTALLATION:
+
+sudo curl -L "https://github.com/docker/compose/releases/download/1.29.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+ls /usr/local/bin/
+sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+docker-compose version
+   
+   
+   
+   
+*DOCKER PORTAINER CREATION:
+ curl -L https://downloads.portainer.io/ce2-16/portainer-agent-stack.yml -o portainer-agent-stack.yml
+ ll
+ vim portainer-agent-stack.yml
+ docker stack ls
+ ls
+ docker stack deploy -c portainer-agent-stack.yml protainer
+ docker stack ls
+   64  docker ps
+   65  docker stack ls
+   66  docker stack ps courses
+   67  docker stack ps courses | grep -i Running
+   68  docker stack ps portainer | grep -i Running
+   69  docker stack ps protainer | grep -i Running
+   70  docker volume ls
+   71  docker service ls
+   72  docker ps -a
+   73  docker stack ls
+   74  docker ps
+   75  docker stop 346ceea27e06
+   76  docker rm 346ceea27e06
+   77  docker ps
+   78  docker stack ls
+   79  docker stack isspect courses
+   80  docker stack inspect courses
+   81  docker stack services  courses
+   82  docker service rm 2u134dvewo24
+   83  docker stack services  courses
+   84  docker stack rm courses
+   85  docker stack rm protainer
+   86  docker ps -a
+   87  lscpu
+   88  lsmem
+   89  docker ps -a
+   90  docker run -itd --name cont2 rahamshaik/azurereponit
+   91  docker ps -a
+   92  docker run -itd --name cont3 --memory=250mb --cpu="0.25" rahamshaik/azurereponit
+   93  docker run -itd --name cont3 --memory=250mb --cpus="0.25" rahamshaik/azurereponit
+   94  docker inspect cont3
+   95  docker inspect cont3 | grep -i cpus
+   96  docker inspect cont3 | grep -i memory
+   97  history

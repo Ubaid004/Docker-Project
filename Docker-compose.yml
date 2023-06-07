@@ -1,0 +1,29 @@
+version: '3'
+services:
+  devops:
+    image: ubaid004/awsdevops:latest
+    ports:
+      - "90:80"
+    deploy:
+      replicas: 3
+
+  aws:
+    image: ubaid004/azuredevops:latest
+    ports:
+      - "91:80"
+    deploy:
+      replicas: 3
+
+  datascience:
+    image: ubaid004/ibmdevops:latest
+    ports:
+      - "92:80"
+    deploy:
+      replicas: 3
+
+  azure:
+    image: ubaid004/database:latest
+    ports:
+      - "93:80"
+    deploy:
+      replicas: 3

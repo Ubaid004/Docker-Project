@@ -31,3 +31,24 @@ pipeline {
         }
     }
 }
+
+
+
+DEPLOYMENT:
+
+pipeline {
+    agent any
+
+    stages {
+        stage('check') {
+            steps {
+                git 'https://github.com/Ubaid004/Docker-Project.git'
+            }
+        }
+        stage('stack') {
+            steps {
+                sh 'docker stack deploy -c docker-compose.yml courses'
+            }
+        }
+    }
+}
